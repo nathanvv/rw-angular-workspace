@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NxModule } from '@nrwl/nx';
+import { loggingRoutes } from '@rwscope/logging';
 
 @NgModule({
   declarations: [AppComponent],

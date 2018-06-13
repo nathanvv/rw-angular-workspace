@@ -6,6 +6,9 @@
     },
     "angularlicious-web-e2e": {
       "tags": []
+    },
+    "logging": {
+      "tags": []
     }
   }
 }

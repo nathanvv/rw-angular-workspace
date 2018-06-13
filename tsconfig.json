@@ -18,6 +18,9 @@
     "paths": {
       "@rwscope/*": [
         "libs/*"
+      ],
+      "@rwscope/logging": [
+        "libs/logging/src/index.ts"
       ]
     }
   },
