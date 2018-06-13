@@ -25,7 +25,7 @@
     "dep-graph": "./node_modules/.bin/nx dep-graph",
     "help": "./node_modules/.bin/nx help",
     "build:libs": "npm run build:rwscope-logging",
-    "build:buildmotion-logging": "ng-packagr -p libs/logging/package.json"
+    "build:rwscope-logging": "ng-packagr -p libs/logging/package.json"
   },
   "private": true,
   "dependencies": {
