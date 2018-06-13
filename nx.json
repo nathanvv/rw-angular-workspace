@@ -1,5 +1,11 @@
 {
   "npmScope": "rwscope",
   "projects": {
+    "angularlicious-web": {
+      "tags": []
+    },
+    "angularlicious-web-e2e": {
+      "tags": []
+    }
   }
 }

@@ -2,12 +2,128 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "",
-  "projects": {},
+  "projects": {
+    "angularlicious-web": {
+      "root": "apps/angularlicious-web/",
+      "sourceRoot": "apps/angularlicious-web/src",
+      "projectType": "application",
+      "prefix": "rwscope",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/angularlicious-web",
+            "index": "apps/angularlicious-web/src/index.html",
+            "main": "apps/angularlicious-web/src/main.ts",
+            "polyfills": "apps/angularlicious-web/src/polyfills.ts",
+            "tsConfig": "apps/angularlicious-web/tsconfig.app.json",
+            "assets": [
+              "apps/angularlicious-web/src/favicon.ico",
+              "apps/angularlicious-web/src/assets"
+            ],
+            "styles": [
+              "apps/angularlicious-web/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/angularlicious-web/src/environments/environment.ts",
+                  "with": "apps/angularlicious-web/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "angularlicious-web:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "angularlicious-web:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "angularlicious-web:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/angularlicious-web/src/test.ts",
+            "polyfills": "apps/angularlicious-web/src/polyfills.ts",
+            "tsConfig": "apps/angularlicious-web/tsconfig.spec.json",
+            "karmaConfig": "apps/angularlicious-web/karma.conf.js",
+            "styles": [
+              "apps/angularlicious-web/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "apps/angularlicious-web/src/favicon.ico",
+              "apps/angularlicious-web/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/angularlicious-web/tsconfig.app.json",
+              "apps/angularlicious-web/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "angularlicious-web-e2e": {
+      "root": "apps/angularlicious-web-e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/angularlicious-web-e2e/protractor.conf.js",
+            "devServerTarget": "angularlicious-web:serve"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/angularlicious-web-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "warnings": {
       "typescriptMismatch": false,
       "versionMismatch": false
     },
     "defaultCollection": "@nrwl/schematics"
-  }
+  },
+  "defaultProject": "angularlicious-web"
 }
